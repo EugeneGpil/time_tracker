@@ -19,57 +19,57 @@ up:
 	docker compose up --detach --remove-orphans --force-recreate
 
 exec:
-	docker compose exec --user=app php-fpm bash
+	docker compose exec --user=app php bash
 
 down:
 	docker compose down
 
 perm:
-	docker compose run php-fpm bash -cl \
+	docker compose run php bash -cl \
 		"/set_perm.sh app"
 
 docs-install:
-	docker compose run --user=app php-fpm bash -cl \
+	docker compose run --user=app php bash -cl \
 		"npm install"
 
 composer-install:
-	docker compose run --user=app php-fpm bash -cl \
+	docker compose run --user=app php bash -cl \
 		"composer install"
 
 init-back-env:
-	@if [ -e $$(test ! -f ../back/.env || grep "^APP_KEY=" ../back/.env) ]; then\
-  		echo "APP_KEY=" > ../back/.env.temp;\
+	@if [ -e $$(test ! -f ../php/.env || grep "^APP_KEY=" ../php/.env) ]; then\
+  		echo "APP_KEY=" > ../php/.env.temp;\
 	else\
-		grep "^APP_KEY=" ../back/.env > ../back/.env.temp;\
+		grep "^APP_KEY=" ../php/.env > ../php/.env.temp;\
 	fi
-	grep -v "^APP_KEY=" ../back/.env.docker > ../back/.env
-	cat ../back/.env.temp >> ../back/.env
-	echo "" >> ../back/.env
-	rm ../back/.env.temp
+	grep -v "^APP_KEY=" ../php/.env.docker > ../php/.env
+	cat ../php/.env.temp >> ../php/.env
+	echo "" >> ../php/.env
+	rm ../php/.env.temp
 
 key-generate:
-	@if [ -e $$(test ! -f ../back/.env || egrep "^APP_KEY=.+" ../back/.env) ]; then\
-		docker compose run --user=app php-fpm bash -cl \
+	@if [ -e $$(test ! -f ../php/.env || egrep "^APP_KEY=.+" ../php/.env) ]; then\
+		docker compose run --user=app php bash -cl \
 			"php artisan key:generate";\
 	else\
 		echo "APP_KEY is already set. Skipped.";\
 	fi
 
 passport-keys:
-	docker compose run --user=app php-fpm bash -cl \
+	docker compose run --user=app php bash -cl \
 		"php artisan passport:keys | true"
 
 docs:
-	docker compose run --user=app php-fpm bash -cl \
+	docker compose run --user=app php bash -cl \
 		"php artisan apiato:apidoc"
 
 db-migrate:
-	docker compose run --user=app php-fpm bash -cl \
+	docker compose run --user=app php bash -cl \
 		"php artisan migrate"
 
 node-exec:
 	docker compose exec node bash
 
 test:
-	docker compose exec --user=app php-fpm bash -cl \
+	docker compose exec --user=app php bash -cl \
 		"./vendor/bin/phpunit --stop-on-failure --stop-on-error --display-skipped ./app/"

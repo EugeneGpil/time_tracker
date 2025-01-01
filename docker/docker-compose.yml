@@ -1,0 +1,59 @@
+services:
+
+  php:
+    build:
+      context: /containers/php
+      args:
+        USER_ID: ${USER_ID:-1000}
+        GROUP_ID: ${GROUP_ID:-1000}
+        NPM_MIRROR: ${NPM_MIRROR:-https://registry.npmjs.org/}
+        VERSION_NODE: ${DOCS_NODE_VERSION:-22.12.0}
+    volumes:
+      - ../php:/var/www/php
+      - ./containers/php/logs/commandhistory:/commandhistory
+    user: root:root
+    command: bash -cl "php-fpm"
+    working_dir: /var/www/php
+    depends_on:
+      - pgsql
+    restart: unless-stopped
+
+  node:
+    build:
+      context: ./containers/node
+      args:
+        USER_ID: ${USER_ID:-1000}
+        GROUP_ID: ${GROUP_ID:-1000}
+    volumes:
+      - ../node:/var/www/node
+      - ./containers/node/logs/commandhistory:/commandhistory
+    user: app:app
+    command: tail -F anything
+    working_dir: /var/www/node
+    restart: unless-stopped
+
+  pgsql:
+    image: postgres:17.2-bookworm
+    volumes:
+      - ./containers/pgsql/databases:/var/lib/postgresql/data
+    ports:
+      - ${PSQL_FORWARD_PORT:-54321}:5432
+    environment:
+      POSTGRES_DATABASE: ${DB_DATABASE:-time_tracker}
+      POSTGRES_USER: ${DB_USERNAME:-time_tracker}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-time_tracker}
+      PGDATA: /var/lib/postgresql/data/time_tracker
+    restart: unless-stopped
+
+  nginx:
+    build:
+      context: ./containers/nginx
+      args:
+        APP_HOST: ${APP_HOST:-time-tracker.lc}
+    volumes:
+      - ../php:/var/www/back
+    ports:
+      - ${PORT_NGINX:-80}:80
+    depends_on:
+      - php
+    restart: unless-stopped

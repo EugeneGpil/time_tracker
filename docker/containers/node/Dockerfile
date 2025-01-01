@@ -2,7 +2,6 @@ FROM node:22.12-bookworm
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-COPY ./set_perm.sh /set_perm.sh
 
 ARG USER_ID
 ARG GROUP_ID

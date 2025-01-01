@@ -13,7 +13,7 @@ init:\
 	test
 
 build:
-	docker compose build
+	docker compose --progress plain build >> "logs/build_$$(date "+%Y-%m-%d_%H:%M:%S").log"
 
 up:
 	docker compose up --detach --remove-orphans --force-recreate

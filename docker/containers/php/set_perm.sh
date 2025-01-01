@@ -17,12 +17,12 @@ printf "Make owner of project user %s\n" "$1"
 chown -R "$1:$1" ./
 
 printf "Give permission for writing only to %s for all project\n" "$1"
-find /var/www/back -type f -exec chmod 644 {} \;
-find /var/www/back -type d -exec chmod 755 {} \;
+find /var/www/php -type f -exec chmod 644 {} \;
+find /var/www/php -type d -exec chmod 755 {} \;
 
-set_shared_permissions "$1" "/var/www/back/bootstrap/cache"
-set_shared_permissions "$1" "/var/www/back/storage"
+set_shared_permissions "$1" "/var/www/php/bootstrap/cache"
+set_shared_permissions "$1" "/var/www/php/storage"
 
 printf "Add execution for bin files\n"
-chmod u+x /var/www/back/vendor/bin/* || true
-chmod u+x /var/www/back/node_modules/.bin/* || true
+chmod u+x /var/www/php/vendor/bin/* || true
+chmod u+x /var/www/php/node_modules/.bin/* || true

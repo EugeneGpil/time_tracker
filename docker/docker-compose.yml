@@ -54,6 +54,7 @@ services:
         APP_HOST: ${APP_HOST:-time-tracker.lc}
     volumes:
       - ../php:/var/www/php
+      - ../node:/var/www/node
     ports:
       - ${PORT_NGINX:-80}:80
     depends_on:

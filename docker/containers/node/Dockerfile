@@ -78,4 +78,7 @@ RUN echo "downloading and installing nvm" && \
     npm config set strict-ssl=false && \
     \
     npm config rm proxy && \
-    npm config rm https-proxy
+    npm config rm https-proxy && \
+    \
+    echo "installing quasar" && \
+    npm i -g @quasar/cli

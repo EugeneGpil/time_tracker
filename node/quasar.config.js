@@ -72,7 +72,11 @@ export default defineConfig((ctx) => {
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#devserver
     devServer: {
       // https: true,
-      open: true, // opens browser window automatically
+      open: false, // opens browser window automatically
+      client: {
+        // webSocketURL: 'ws://time-tracker.lc'
+        webSocketUrl: `ws://${ctx.APP_URL}`
+      }
     },
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#framework

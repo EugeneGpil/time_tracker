@@ -57,6 +57,8 @@ services:
       - ../node:/var/www/node
     ports:
       - ${PORT_NGINX:-80}:80
+      # vite dev websocket
+      - 24678:24678
     depends_on:
       - php
     restart: unless-stopped

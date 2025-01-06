@@ -73,10 +73,7 @@ export default defineConfig((ctx) => {
     devServer: {
       // https: true,
       open: false, // opens browser window automatically
-      client: {
-        // webSocketURL: 'ws://time-tracker.lc'
-        webSocketUrl: `ws://${ctx.APP_URL}`
-      }
+      port: 9000,
     },
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#framework
@@ -131,7 +128,7 @@ export default defineConfig((ctx) => {
       // manualStoreHydration: true,
       // manualPostHydrationTrigger: true,
 
-      pwa: false
+      pwa: false,
       // pwaOfflineHtmlFilename: 'offline.html', // do NOT use index.html as name!
 
       // pwaExtendGenerateSWOptions (cfg) {},

@@ -1,3 +1,3 @@
 <template>
-  register
+  <div>register</div>
 </template>

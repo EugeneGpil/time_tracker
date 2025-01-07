@@ -6,5 +6,6 @@
 @use 'src/css/color_utils.scss' as *;
 .register-widget {
   @include color(color, primary);
+  @include color(background-color, block-background);
 }
 </style>

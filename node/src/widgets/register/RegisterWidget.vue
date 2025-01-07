@@ -5,6 +5,6 @@
 <style lang="scss" scoped>
 @use 'src/css/color_utils.scss' as *;
 .register-widget {
-  @include color(color, --primary);
+  @include color(color, primary);
 }
 </style>

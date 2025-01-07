@@ -1,3 +1,4 @@
 @mixin color($property, $color) {
-  #{$property}: light-dark(var($color), var(#{$color}-dark))
+  #{$property}: var(--#{$color});
+  #{$property}: light-dark(var(--#{$color}), var(--#{$color}-dark));
 }

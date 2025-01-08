@@ -1,9 +1,10 @@
-@import "./../../node_modules/normalize.css/normalize.css";
-@import "./fonts/montserrat.scss";
-@import "./fonts/sixtyfour.scss";
-@import "./color_variables_1.scss";
-@import "./color_utils.scss";
+@import './../../node_modules/normalize.css/normalize.css';
+@import './fonts/montserrat.scss';
+@import './fonts/sixtyfour.scss';
+@import './color_variables_1.scss';
+@import './color_utils.scss';
 
 body {
   @include color(background-color, main-background);
+  min-width: 0;
 }

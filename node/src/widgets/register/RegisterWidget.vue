@@ -5,7 +5,7 @@
     </div>
     <div class="register-widget__main-text-container">
       <div class="register-widget__main-text">
-        Register a new membership
+        {{ $t('register_a_new_membership') }}
       </div>
     </div>
   </div>
@@ -34,8 +34,8 @@ export default {
   border-top-right-radius: 0.25rem;
 
   &__logo {
-    padding-top: 0.7rem;
-    padding-bottom: 0.7rem;
+    padding-top: min(0.7rem, 5vw);
+    padding-bottom: min(0.7rem, 5vw);
     overflow-y: hidden;
     border-bottom-width: 0.063rem;
     border-bottom-style: solid;
@@ -46,8 +46,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
+    padding-top: min(1.25rem, 7vw);
+    padding-bottom: min(1.25rem, 7vw);
   }
 }
 </style>

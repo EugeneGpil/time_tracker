@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import RegisterWidget from 'src/widgets/register/RegisterWidget.vue';
+import RegisterWidget from 'src/widgets/auth/RegisterWidget.vue';
 
 export default {
   components: {

@@ -1,0 +1,6 @@
+body {
+  @include color(background-color, main-background);
+  min-width: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: min(1rem, 4.7vw);
+}

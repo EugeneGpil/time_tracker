@@ -1,53 +1,30 @@
 <template>
-  <div class="register-widget">
-    <div class="register-widget__logo">
+  <div class="login">
+    <div class="login__logo">
       <LogoComponent />
     </div>
-    <div class="register-widget__main-text-container">
-      <div class="register-widget__main-text">
+    <div class="login__main-text-container">
+      <div class="login__main-text">
         {{ $t('register_a_new_membership') }}
       </div>
+    </div>
+    <div class="login__input">
+      <LoginInputComponent />
+    </div>
+    <div class="login__input">
+      <LoginInputComponent />
     </div>
   </div>
 </template>
 
 <script>
+import LoginInputComponent from 'src/shared/LoginInputComponent.vue';
 import LogoComponent from 'src/shared/LogoComponent.vue';
 
 export default {
   components: {
+    LoginInputComponent,
     LogoComponent,
   }
 }
 </script>
-
-<style lang="scss" scoped>
-@use 'src/css/color_utils.scss' as *;
-
-.register-widget {
-  width: min(90%, 22.5rem);
-  @include color(background-color, block-background);
-  border-top-width: 0.188rem;
-  border-top-style: solid;
-  @include color(border-top-color, primary);
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-
-  &__logo {
-    padding-top: min(0.7rem, 5vw);
-    padding-bottom: min(0.7rem, 5vw);
-    overflow-y: hidden;
-    border-bottom-width: 0.063rem;
-    border-bottom-style: solid;
-    @include color(border-bottom-color, between-blocks-border);
-  }
-
-  &__main-text-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: min(1.25rem, 7vw);
-    padding-bottom: min(1.25rem, 7vw);
-  }
-}
-</style>

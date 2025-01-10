@@ -3,10 +3,5 @@
 @import './fonts/sixtyfour.scss';
 @import './color_variables_1.scss';
 @import './color_utils.scss';
-
-body {
-  @include color(background-color, main-background);
-  min-width: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-size: min(1rem, 4.7vw);
-}
+@import './body.scss';
+@import './login.scss';

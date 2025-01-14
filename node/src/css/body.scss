@@ -3,4 +3,14 @@ body {
   min-width: 0;
   font-family: 'Montserrat', sans-serif;
   font-size: min(1rem, 4.7vw);
+  box-sizing: border-box;
+}
+
+input {
+  &:focus, &:active {
+    border:none;
+    outline-style: solid;
+    outline-width: 0.063rem;
+    @include color(outline-color, focused);
+  }
 }

@@ -4,24 +4,24 @@
       <LogoComponent/>
     </template>
     <template #input-0>
-      <LoginInputComponent icon="fas fa-user"/>
+      <RegisterNameInputFeature/>
     </template>
-    <template #input-1>
-      <LoginInputComponent icon="fas fa-envelope"/>
-    </template>
+<!--    <template #input-1>-->
+<!--      <LoginInputComponent icon="fas fa-envelope"/>-->
+<!--    </template>-->
   </LoginEntity>
 </template>
 
 <script>
 import LoginEntity from "src/entities/auth/LoginEntity.vue";
-import LoginInputComponent from 'src/shared/LoginInputComponent.vue';
 import LogoComponent from 'src/shared/LogoComponent.vue';
+import RegisterNameInputFeature from 'src/features/auth/RegisterNameInputFeature.vue';
 
 export default {
   components: {
-    LoginInputComponent,
     LogoComponent,
     LoginEntity,
+    RegisterNameInputFeature,
   }
 }
 </script>

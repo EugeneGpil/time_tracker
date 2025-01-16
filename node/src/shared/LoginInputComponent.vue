@@ -1,6 +1,6 @@
 <template>
   <div class="login-input">
-    <input class="login-input__input" :type="type">
+    <input class="login-input__input" :type="type" :placeholder="placeholder">
     <div class="login-input__icon-container">
       <QIcon class="login-input__icon" :name="icon"/>
     </div>
@@ -19,6 +19,10 @@ export default {
     type: {
       type: String,
       default: 'text',
+    },
+    placeholder: {
+      type: String,
+      default: '',
     },
   },
   components: {

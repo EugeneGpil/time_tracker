@@ -1,5 +1,5 @@
 <template>
-    <LoginInputComponent icon="fas fa-user" :placeholder="$t('name')"/>
+  <LoginInputComponent icon="fas fa-lock" :placeholder="$t('retype_password')"/>
 </template>
 
 <script>

@@ -38,7 +38,6 @@ export default {
   border-width: 0.063rem;
   @include color(border-right-color, input-border);
   border-radius: 0.25rem;
-  border-radius: 0.25rem;
 
   &__input {
     flex: 1;
@@ -57,6 +56,10 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    @include color(background-color, input-icon-background);
+    align-self: stretch;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
   }
 }
 </style>

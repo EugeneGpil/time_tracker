@@ -9,7 +9,15 @@
       </div>
     </div>
     <div v-for="index in [...Array(10).keys()]" :key="index" class="login__input">
-      <slot :name="`input-${index}`"/>
+      <slot :name="`input-${index}`" />
+    </div>
+    <div class="login__checkbox-row">
+      <div class="login__checkbox-container">
+        <slot name="checkbox" />
+      </div>
+      <div class="login__checkbox-button-container">
+        <slot name="checkbox-button" />
+      </div>
     </div>
   </div>
 </template>
@@ -22,7 +30,7 @@ export default {
       required: true,
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -58,10 +66,34 @@ export default {
     padding-left: min(1.25rem, 5vw);
     padding-right: min(1.25rem, 5vw);
     padding-bottom: min(1rem, 4vw);
+
+    &:empty {
+      display: none;
+    }
   }
 
-  &__input:empty {
-    display: none;
+  &__checkbox-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__checkbox-container {
+    padding-left: min(1.25rem, 5vw);
+    margin-bottom: min(1rem, 4vw);
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__checkbox-button-container {
+    padding-right: min(1.25rem, 5vw);
+    padding-bottom: min(1rem, 4vw);
+
+    &:empty {
+      display: none;
+    }
   }
 }
 </style>

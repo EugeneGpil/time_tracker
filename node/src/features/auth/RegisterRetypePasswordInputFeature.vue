@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import LoginInputComponent from 'src/shared/LoginInputComponent.vue';
+import LoginInputComponent from 'src/shared/auth/LoginInputComponent.vue';
 
 export default {
   components: {

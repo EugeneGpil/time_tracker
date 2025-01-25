@@ -43,6 +43,8 @@ export default {
   &__label {
     font-weight: 500;
     display: flex;
+    text-align: center;
+    line-height: min(1.275rem, 5vw);
 
     &:hover .login-checkbox__checkbox-container {
       border-width: 0.125rem;
@@ -59,6 +61,7 @@ export default {
     border-width: 0.05rem;
     border-style: solid;
     @include color(border-color, input-border);
+    margin-right: 0.563rem;
 
     &_checked {
       @include color(background-color, primary);

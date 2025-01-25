@@ -7,10 +7,18 @@ body {
 }
 
 input {
+  line-height: 1.25;
+
   &:focus, &:active {
     border:none;
     outline-style: solid;
     outline-width: 0.063rem;
     @include color(outline-color, focused);
   }
+}
+
+button {
+  line-height: 1.25;
+  outline: none;
+  border: none;
 }

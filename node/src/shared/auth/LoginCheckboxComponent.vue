@@ -61,7 +61,7 @@ export default {
     border-width: 0.05rem;
     border-style: solid;
     @include color(border-color, input-border);
-    margin-right: 0.563rem;
+    margin-right: min(0.563rem, 2vw);
 
     &_checked {
       @include color(background-color, primary);

@@ -6,6 +6,7 @@ export const useRegisterStore = defineStore('register', {
     email: '',
     password: '',
     retypePassword: '',
+    areTermsAgreed: false,
   }),
   getters: {},
   actions: {}

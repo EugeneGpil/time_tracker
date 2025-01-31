@@ -1,12 +1,12 @@
 <template>
-  <label class="login-checkbox__label" @click="$emit('update:modelValue', !modelValue)">
+  <label class="login-checkbox__label" @click="$emit('input', !value)">
     <span
       class="login-checkbox__checkbox-container"
-      :class="{'login-checkbox__checkbox-container_checked': modelValue}"
+      :class="{'login-checkbox__checkbox-container_checked': value}"
     >
       <span class="login-checkbox__icon-container">
         <QIcon
-          v-show="modelValue"
+          v-show="value"
           name="fa-solid fa-check"
           class="login-checkbox__icon"
         />
@@ -21,7 +21,7 @@ import {QIcon} from 'quasar';
 
 export default {
   props: {
-    modelValue: {
+    value: {
       type: Boolean,
       required: true,
     },
@@ -73,5 +73,4 @@ export default {
     font-size: min(0.9rem, 4.1vw);
   }
 }
-
 </style>

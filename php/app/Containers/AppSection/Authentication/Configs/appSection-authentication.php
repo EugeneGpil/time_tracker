@@ -97,7 +97,7 @@ return [
     |
     | Insert your allowed verify email urls which user can request to be injected into the email.
     |
-*/
+    */
     'allowed-verify-email-urls' => [
         env('APP_URL', 'http://api.apiato.test/v1') . '/email/verify',
     ],

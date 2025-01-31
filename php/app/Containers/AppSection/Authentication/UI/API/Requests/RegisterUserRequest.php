@@ -21,12 +21,12 @@ class RegisterUserRequest extends ParentRequest
     public function rules(): array
     {
         return [
+            'name' => 'min:2|max:50',
             'email' => 'required|email|unique:users,email',
             'password' => [
                 'required',
                 Password::default(),
             ],
-            'name' => 'min:2|max:50',
             'gender' => Rule::enum(Gender::class),
             'birth' => 'date',
             'verification_url' => [

@@ -1,6 +1,6 @@
 import { defineStore, acceptHMRUpdate } from 'pinia'
 
-export const useRegister = defineStore('register', {
+export const useRegisterStore = defineStore('register', {
   state: () => ({
     name: '',
     email: '',
@@ -12,5 +12,5 @@ export const useRegister = defineStore('register', {
 })
 
 if (import.meta.hot) {
-  import.meta.hot.accept(acceptHMRUpdate(useRegister, import.meta.hot))
+  import.meta.hot.accept(acceptHMRUpdate(useRegisterStore, import.meta.hot))
 }

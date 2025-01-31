@@ -1,11 +1,12 @@
 <template>
   <div class="login-input">
     <input
-      :modelValue="modelValue"
+      :value="value"
       :type="type"
       :placeholder="placeholder"
       class="login-input__input"
-      @input="$emit('input', $event.target.value)"
+      autocomplete="off"
+      @input="$emit('input', $event)"
     >
     <div class="login-input__icon-container">
       <QIcon class="login-input__icon" :name="icon"/>
@@ -18,7 +19,7 @@ import {QIcon} from 'quasar';
 
 export default {
   props: {
-    modelValue: {
+    value: {
       type: String,
       required: true,
     },

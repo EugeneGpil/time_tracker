@@ -26,6 +26,7 @@ class RegisterUserRequest extends ParentRequest
             'password' => [
                 'required',
                 Password::default(),
+                'confirmed',
             ],
             'gender' => Rule::enum(Gender::class),
             'birth' => 'date',

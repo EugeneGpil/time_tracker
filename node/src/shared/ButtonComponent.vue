@@ -1,5 +1,5 @@
 <template>
-  <button class="button">{{ text }}</button>
+  <button class="button" :disabled="disabled">{{ text }}</button>
 </template>
 
 <script>
@@ -8,7 +8,11 @@ export default {
     text: {
       type: String,
       required: true,
-    }
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   }
 }
 </script>
@@ -20,5 +24,9 @@ export default {
   border-radius: 0.25rem;
   padding: min(0.375rem, 1.25vw) min(0.75rem, 2.5vw);
   @include color(background-color, primary);
+
+  &:hover {
+    @include color(background-color, primary-darker);
+  }
 }
 </style>

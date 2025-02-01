@@ -1,5 +1,8 @@
 <template>
-  <ButtonComponent text="Register"/>
+  <ButtonComponent
+    :disabled="false"
+    text="Register"
+  />
 </template>
 
 <script>

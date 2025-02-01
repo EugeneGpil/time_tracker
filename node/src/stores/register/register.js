@@ -1,4 +1,5 @@
 import { defineStore, acceptHMRUpdate } from 'pinia'
+import registerAction from 'stores/register/registerAction.js';
 
 export const useRegisterStore = defineStore('register', {
   state: () => ({
@@ -7,9 +8,12 @@ export const useRegisterStore = defineStore('register', {
     password: '',
     retypePassword: '',
     areTermsAgreed: false,
+    isRegisteringInProgress: false,
   }),
   getters: {},
-  actions: {}
+  actions: {
+    register: registerAction,
+  }
 })
 
 if (import.meta.hot) {

@@ -11,7 +11,7 @@
 <script>
 import LoginInputComponent from 'src/shared/auth/LoginInputComponent.vue';
 import {mapStores} from 'pinia';
-import {useRegisterStore} from 'src/stores/register.js';
+import {useRegisterStore} from 'src/stores/register';
 
 export default {
   computed: {

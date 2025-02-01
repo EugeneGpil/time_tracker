@@ -9,7 +9,7 @@
 <script>
 import LoginCheckboxComponent from "src/shared/auth/LoginCheckboxComponent.vue";
 import {mapStores} from "pinia";
-import {useRegisterStore} from 'stores/register.js';
+import {useRegisterStore} from 'stores/register';
 
 export default {
   computed: {

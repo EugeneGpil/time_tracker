@@ -1,3 +1,5 @@
+import {useErrorStore} from 'stores/error/error.js';
+
 export default async function () {
   if (this.isRegisteringInProgress === true) {
     return;
@@ -5,30 +7,26 @@ export default async function () {
 
   this.isRegisteringInProgress = true;
 
-  setTimeout(() => {
-    this.isRegisteringInProgress = false;
-  }, 3000)
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    },
+    body: JSON.stringify({
+      name: this.name,
+      email: this.email,
+      password: this.password,
+      password_confirmation: this.retypePassword,
+    }),
+  }
 
-  // const options = {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //     'Accept': 'application/json',
-  //   },
-  //   body: JSON.stringify({
-  //     name: this.name,
-  //     email: this.email,
-  //     password: this.password,
-  //     password_confirmation: this.retypePassword,
-  //   }),
-  // }
-  //
-  // const response = await fetch(
-  //   'http://api.time-tracker.lc/v1/register',
-  //   options,
-  // )
-  //
-  // console.log(response)
-  //
-  // this.isRegisteringInProgress = false;
+  const response = await fetch(
+    'http://api.time-tracker.lc/v1/register',
+    options,
+  )
+
+  await useErrorStore().setValidationErrors(response, 'register')
+
+  this.isRegisteringInProgress = false;
 }
